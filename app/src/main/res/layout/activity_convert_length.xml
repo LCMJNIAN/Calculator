@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_main_choose"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/cal_name"
+            android:textColor="@color/tab_text"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_convert_choose"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/length_conversion"
+            android:drawableEnd="@drawable/ic_down_small_primary"
+            android:textColor="@color/tab_text_color_selected"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <Button
+            android:id="@+id/btn_settings"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="150dp"
+            android:drawableTintMode="src_in"
+            android:foreground="@drawable/ic_settings" />
+    </GridLayout>
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="30dp"
+        android:textSize="30sp"/>
+
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn1"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:text="@string/number_1"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btn2"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:text="@string/number_2"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btn3"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:text="@string/number_3"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/divide"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:text="@string/clean"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn4"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:text="@string/number_4"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btn5"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:text="@string/number_5"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btn6"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:text="@string/number_6"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/multi"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:text="@string/delete"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn7"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:text="@string/number_7"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btn8"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:text="@string/number_8"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btn9"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:text="@string/number_9"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/point"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:text="@string/point"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btn0"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:text="@string/number_0"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/clean"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:text="@string/double_zero"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp" />
+
+
+        </TableRow>
+
+
+    </TableLayout>
+</LinearLayout>

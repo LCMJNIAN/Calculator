@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/basic_cal"
+        android:title="@string/basic_cal"/>
+    <item
+        android:id="@+id/sci_cal"
+        android:title="@string/sic_cal"/>
+    <item
+        android:id="@+id/base_cal"
+        android:title="@string/base_cal"/>
+    <item
+        android:id="@+id/loan_cal"
+        android:title="@string/loan_cal"/>
+</menu>

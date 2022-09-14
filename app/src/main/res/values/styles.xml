@@ -1,0 +1,15 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+<!--    <style name="MyStartTheme" parent="android:Theme.NoTitleBar.Fullscreen">-->
+<!--        &lt;!&ndash;设置背景图片&ndash;&gt;-->
+<!--        <item name="android:windowBackground">@drawable/ipod_bg</item>-->
+<!--        &lt;!&ndash;设置全屏&ndash;&gt;-->
+<!--        <item name="android:windowNoTitle">true</item>-->
+<!--    </style>-->
+</resources>

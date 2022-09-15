@@ -22,4 +22,6 @@
         <item>汇率转换</item>
         <item>人民币金额中文大写</item>
     </string-array>
+    <string-array name="convert_length">
+    </string-array>
 </resources>

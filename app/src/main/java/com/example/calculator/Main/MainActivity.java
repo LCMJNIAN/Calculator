@@ -15,8 +15,9 @@ import android.widget.Toast;
 import android.view.View.OnClickListener;
 
 public class MainActivity extends Activity implements OnClickListener,OnMenuItemClickListener {
-
-    private TextView result;
+    //结果
+    private TextView result_front;
+    private TextView result_end;
     //按钮0-9
     private Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9;
     //运算符
@@ -58,7 +59,8 @@ public class MainActivity extends Activity implements OnClickListener,OnMenuItem
         clean = findViewById(R.id.clean);
         delete = findViewById(R.id.delete);
 
-        result = findViewById(R.id.result);
+        result_front = findViewById(R.id.result_front);
+        result_end = findViewById(R.id.result_end);
 
         settings = (Button)findViewById(R.id.btn_settings);
         cal_choose = findViewById(R.id.btn_main_choose);
@@ -91,7 +93,7 @@ public class MainActivity extends Activity implements OnClickListener,OnMenuItem
     @Override
     public void onClick(View view) {
         //获取文本内容
-        String input = result.getText().toString();
+        String input = result_front.getText().toString();
         switch (view.getId()){//选择按钮id
             case R.id.btn0:
             case R.id.btn1:
@@ -103,31 +105,39 @@ public class MainActivity extends Activity implements OnClickListener,OnMenuItem
             case R.id.btn7:
             case R.id.btn8:
             case R.id.btn9:
-                result.setText(input + ((Button)view).getText());
+                if(input.length()>0 && input.charAt(input.length()-1) == '=') {
+                    result_front.setText(((Button) view).getText());
+                    result_end.setText("");
+                }
+                else
+                    result_front.setText(input + ((Button)view).getText());
                 break;
             case R.id.point:
                 if (input.isEmpty() || input.substring(input.length() - 1).equals(" "))
                     return;//如果最后是空格，无响应
                 else
-                    result.setText(input + '.');
+                    result_front.setText(input + '.');
                 break;
             //加减乘除，运算符前后都是空格
             case R.id.plus:
             case R.id.sub:
             case R.id.multi:
             case R.id.divide:
-                result.setText(input + " " + ((Button)view).getText() + " ");
+                result_front.setText(input + " " + ((Button)view).getText() + " ");
                 break;
             case R.id.clean://清除输入框
-                result.setText("");
+                result_front.setText("");
+                result_end.setText("");
                 break;
             case R.id.delete://从后往前删除字符
                 if(!input.isEmpty())
-                    result.setText(input.substring(0, input.length() - 1));
+                    result_front.setText(input.substring(0, input.length() - 1));
+                    result_end.setText("");
                 break;
             case R.id.equal://计算运算结果
                 Calculate cal = new Calculate();
-                result.setText(cal.evaluateExpression(result.getText().toString()));
+                result_end.setText(cal.evaluateExpression(result_front.getText().toString()));
+                result_front.setText(input + "=");
                 break;
             case R.id.btn_settings:
                 //创建弹出式菜单对象（最低版本11）

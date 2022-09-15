@@ -43,11 +43,18 @@
             android:foreground="@drawable/ic_settings" />
     </GridLayout>
     <TextView
-        android:id="@+id/result"
+        android:id="@+id/result_front"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
+        android:gravity="right|bottom"
+        android:textSize="35sp"/>
+    <TextView
+        android:id="@+id/result_end"
+        android:layout_width="match_parent"
+        android:gravity="right|bottom"
+        android:layout_height="150dp"
         android:layout_marginBottom="30dp"
-        android:textSize="30sp"/>
+        android:textSize="55sp"/>
 
 
     <TableLayout

@@ -28,4 +28,6 @@
     <string name="loan_cal">贷款计算器</string>
 
     <string name="length_conversion">长度换算</string>
+    <string name="length_meter">米</string>
+    <string name="length_kilo">千米</string>
 </resources>

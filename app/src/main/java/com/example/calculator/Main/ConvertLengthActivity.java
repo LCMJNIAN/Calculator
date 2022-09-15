@@ -15,7 +15,8 @@ import android.widget.Toast;
 import android.view.View.OnClickListener;
 
 public class ConvertLengthActivity extends Activity {
-
+    //两个结果框
+    //
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_convert_length);

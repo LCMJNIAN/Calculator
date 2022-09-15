@@ -7,7 +7,7 @@ public class Calculate {
         char temp='s';
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '(' || s.charAt(i) == ')' || s.charAt(i) == '+' || s.charAt(i) == '-'
-                    || s.charAt(i) == '*' || s.charAt(i) == '/' || s.charAt(i) == '&'
+                    || s.charAt(i) == '×' || s.charAt(i) == '÷' || s.charAt(i) == '&'
                     || s.charAt(i) == '^' || s.charAt(i) == '|' || s.charAt(i) == 'S')
             {
                 if(s.charAt(i)=='-'&& (temp=='s'||temp=='(')) {
@@ -51,7 +51,7 @@ public class Calculate {
                         operandStack.push(Double.parseDouble(token));
                         continue;
                     }
-                while (!operatorStack.isEmpty() && (operatorStack.peek() == '-' || operatorStack.peek() == '+' || operatorStack.peek() == '/' || operatorStack.peek() == '*')) {
+                while (!operatorStack.isEmpty() && (operatorStack.peek() == '-' || operatorStack.peek() == '+' || operatorStack.peek() == '÷' || operatorStack.peek() == '×')) {
                     processAnOperator(operandStack, operatorStack);   //开始运算
                 }
                 operatorStack.push(token.charAt(0));   //运算完之后将当前的运算符入栈
@@ -91,8 +91,8 @@ public class Calculate {
             //当前运算符是乘除的时候，因为优先级高于加减，因此要判断最上面的是否是乘除，如果是乘除就运算，否则的话直接入栈
 
 
-            else if (token.charAt(0) == '*' || token.charAt(0) == '/') {
-                while (!operatorStack.isEmpty() && (operatorStack.peek() == '/' || operatorStack.peek() == '*')) {
+            else if (token.charAt(0) == '×' || token.charAt(0) == '÷') {
+                while (!operatorStack.isEmpty() && (operatorStack.peek() == '÷' || operatorStack.peek() == '×')) {
                     processAnOperator(operandStack, operatorStack);
                 }
                 operatorStack.push(token.charAt(0));   //将当前操作符入栈
@@ -117,13 +117,20 @@ public class Calculate {
         while (!operatorStack.isEmpty()) {
             processAnOperator(operandStack, operatorStack);
         }
-        return operandStack.pop().toString();    //此时数据栈中的数据就是运算的结果
+
+        String answer = operandStack.pop().toString();//此时数据栈中的数据就是运算的结果
+        int index = answer.indexOf('.');
+        for(int i=index+1;i<answer.length();i++){
+            if(answer.charAt(i) != '0')
+                return answer;
+        }
+        return answer.substring(0,index);
     }
 
     //这个函数的作用就是处理栈中的两个数据，然后将栈中的两个数据运算之后将结果存储在栈中
     public void processAnOperator(Stack<Double> operandStack, Stack<Character> operatorStack) {
         char op = operatorStack.pop();  //弹出一个操作符
-        if(op == '+' || op == '*' || op == '/' || op=='-') {
+        if(op == '+' || op == '×' || op == '÷' || op=='-') {
             Double op1 = operandStack.pop();  //从存储数据的栈中弹出连个两个数用来和操作符op运算
             Double op2 = operandStack.pop();
             if (op == '+')  //如果操作符为+就执行加运算
@@ -133,7 +140,7 @@ public class Calculate {
 
                 operandStack.push(op2 - op1);   //因为这个是栈的结构，自然是上面的数字是后面的，因此用op2-op1
             }
-            else if (op == '*')
+            else if (op == '×')
                 operandStack.push(op1 * op2);
             else operandStack.push(op2 / op1);
         }

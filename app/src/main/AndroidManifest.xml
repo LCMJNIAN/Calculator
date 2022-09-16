@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Main.ConvertLengthActivity" />
+        <activity android:name=".Main.SciCalActivity" />
     </application>
 
 </manifest>

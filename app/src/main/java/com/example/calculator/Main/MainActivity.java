@@ -188,7 +188,8 @@ public class MainActivity extends Activity implements OnClickListener,OnMenuItem
                 Toast.makeText(this, "进制计算器", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.sci_cal:
-                Toast.makeText(this, "科学计算器", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(MainActivity.this,SciCalActivity.class);
+                startActivity(intent);
                 break;
             case R.id.loan_cal:
                 Toast.makeText(this, "贷款计算器", Toast.LENGTH_SHORT).show();

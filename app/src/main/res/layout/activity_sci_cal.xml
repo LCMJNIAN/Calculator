@@ -41,16 +41,34 @@
     <TextView
         android:id="@+id/result_front"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="90dp"
         android:gravity="right|bottom"
         android:textSize="35sp"/>
     <TextView
         android:id="@+id/result_end"
         android:layout_width="match_parent"
         android:gravity="right|bottom"
-        android:layout_height="75dp"
+        android:layout_height="65dp"
         android:textSize="55sp"/>
-
+    <RadioGroup
+        android:id="@+id/RadioGroup1"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:orientation="horizontal" >
+        <RadioButton
+            android:id="@+id/RadioButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/not_cal_complex"
+            android:checked="true"
+            />
+        <RadioButton
+            android:id="@+id/RadioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cal_complex"
+            />
+    </RadioGroup>
 
 
     <GridLayout

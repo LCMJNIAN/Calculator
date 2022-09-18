@@ -34,7 +34,7 @@
     <string name="btn_sin">sin</string>
     <string name="btn_cos">cos</string>
     <string name="btn_tan">tan</string>
-    <string name="btn_log">log</string>
+    <string name="btn_log">lg</string>
     <string name="btn_ln">ln</string>
     <string name="btn_left">(</string>
     <string name="btn_right">)</string>
@@ -44,5 +44,7 @@
     <string name="btn_evo">√</string>
     <string name="btn_pi">π</string>
     <string name="btn_e">e</string>
+    <string name="cal_complex">计算复数</string>
+    <string name="not_cal_complex">计算实数</string>
 
 </resources>

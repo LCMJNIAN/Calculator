@@ -1,44 +1,51 @@
 package com.example.calculator.Main;
-import android.content.Intent;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
 import android.widget.TextView;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import com.example.calculator.Core.Calculate;
+import com.example.calculator.Core.BaseCalculate;
 import com.example.calculator.R;
 import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.Toast;
 import android.view.View.OnClickListener;
-
-public class MainActivity extends Activity implements OnClickListener,OnMenuItemClickListener {
+public class BaseCalActivity extends Activity implements OnClickListener,OnMenuItemClickListener {
     //结果
     private TextView result_front;
     private TextView result_end;
     //按钮0-9
     private Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9;
+    //按钮A-F
+    private Button btn_A,btn_B,btn_C,btn_D,btn_E,btn_F;
     //运算符
     private  Button plus;   // 加号+
     private  Button sub;    // 减号-
     private  Button multi;  // 乘号×
     private  Button divide; // 除号÷
-    private  Button point;  // 小数点.
     private  Button equal;  // 等于=
     private  Button clean;  // 清空
     private  Button delete; // 删除
     private  Button settings; //设置
     private  Button cal_choose; //计算器选择
     private  Button convert;  //换算器
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    private  Button and;    //与
+    private  Button or;     //或
+    private  Button xor;    //异或
+    private  Button left_move;    //左移
+    private  Button right_move;    //右移
+    private  Button left;   //左括号
+    private  Button right;  //右括号
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_base_cal);
         initView();
     }
-    public void initView() {
+    private void initView() {
         btn0 = findViewById(R.id.btn0);
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
@@ -49,15 +56,27 @@ public class MainActivity extends Activity implements OnClickListener,OnMenuItem
         btn7 = findViewById(R.id.btn7);
         btn8 = findViewById(R.id.btn8);
         btn9 = findViewById(R.id.btn9);
+        btn_A = findViewById(R.id.btn_A);
+        btn_B = findViewById(R.id.btn_B);
+        btn_C = findViewById(R.id.btn_C);
+        btn_D = findViewById(R.id.btn_D);
+        btn_E = findViewById(R.id.btn_E);
+        btn_F = findViewById(R.id.btn_F);
 
         plus = findViewById(R.id.plus);
         sub = findViewById(R.id.sub);
         multi = findViewById(R.id.multi);
         divide = findViewById(R.id.divide);
-        point = findViewById(R.id.point);
         equal = findViewById(R.id.equal);
-        clean = findViewById(R.id.clean);
+        clean = findViewById(R.id.all_clean);
         delete = findViewById(R.id.delete);
+        left = findViewById(R.id.btn_left);
+        right = findViewById(R.id.btn_right);
+        and = findViewById(R.id.btn_and);
+        or = findViewById(R.id.btn_or);
+        xor = findViewById(R.id.btn_xor);
+        left_move = findViewById(R.id.btn_left_move);
+        right_move = findViewById(R.id.btn_right_move);
 
         result_front = findViewById(R.id.result_front);
         result_end = findViewById(R.id.result_end);
@@ -65,6 +84,7 @@ public class MainActivity extends Activity implements OnClickListener,OnMenuItem
         settings = (Button)findViewById(R.id.btn_settings);
         cal_choose = findViewById(R.id.btn_main_choose);
         convert = findViewById(R.id.btn_convert_choose);
+
 
         btn0.setOnClickListener(this);
         btn1.setOnClickListener(this);
@@ -76,22 +96,34 @@ public class MainActivity extends Activity implements OnClickListener,OnMenuItem
         btn7.setOnClickListener(this);
         btn8.setOnClickListener(this);
         btn9.setOnClickListener(this);
+        btn_A.setOnClickListener(this);
+        btn_B.setOnClickListener(this);
+        btn_C.setOnClickListener(this);
+        btn_D.setOnClickListener(this);
+        btn_E.setOnClickListener(this);
+        btn_F.setOnClickListener(this);
 
         plus.setOnClickListener(this);
         sub.setOnClickListener(this);
         multi.setOnClickListener(this);
         divide.setOnClickListener(this);
         equal.setOnClickListener(this);
-        point.setOnClickListener(this);
         clean.setOnClickListener(this);
         delete.setOnClickListener(this);
+        left.setOnClickListener(this);
+        right.setOnClickListener(this);
+        and.setOnClickListener(this);
+        or.setOnClickListener(this);
+        xor.setOnClickListener(this);
+        left_move.setOnClickListener(this);
+        right_move.setOnClickListener(this);
 
         settings.setOnClickListener(this);
         cal_choose.setOnClickListener(this);
         convert.setOnClickListener(this);
     }
     @Override
-    public void onClick(View view) {
+    public void onClick(View view){
         //获取文本内容
         String input = result_front.getText().toString();
         switch (view.getId()){//选择按钮id
@@ -105,6 +137,12 @@ public class MainActivity extends Activity implements OnClickListener,OnMenuItem
             case R.id.btn7:
             case R.id.btn8:
             case R.id.btn9:
+            case R.id.btn_A:
+            case R.id.btn_B:
+            case R.id.btn_C:
+            case R.id.btn_D:
+            case R.id.btn_E:
+            case R.id.btn_F:
                 if(input.length()>0 && input.charAt(input.length()-1) == '=') {
                     result_front.setText(((Button) view).getText());
                     result_end.setText("");
@@ -112,30 +150,37 @@ public class MainActivity extends Activity implements OnClickListener,OnMenuItem
                 else
                     result_front.setText(input + ((Button)view).getText());
                 break;
-            case R.id.point:
-                if (input.isEmpty() || input.substring(input.length() - 1).equals(" "))
-                    return;//如果最后是空格，无响应
-                else
-                    result_front.setText(input + '.');
-                break;
             //加减乘除，运算符前后都是空格
             case R.id.plus:
             case R.id.sub:
             case R.id.multi:
             case R.id.divide:
+            case R.id.btn_left_move:
+            case R.id.btn_right_move:
+            case R.id.btn_left:
+            case R.id.btn_right:
                 result_front.setText(input + " " + ((Button)view).getText() + " ");
                 break;
-            case R.id.clean://清除输入框
+            case R.id.btn_and:
+                result_front.setText(input + " " + "&" + " ");
+                break;
+            case R.id.btn_or:
+                result_front.setText(input + " " + "|" + " ");
+                break;
+            case R.id.btn_xor:
+                result_front.setText(input + " "+ "^"+" ");
+                break;
+            case R.id.all_clean://清除输入框
                 result_front.setText("");
                 result_end.setText("");
                 break;
             case R.id.delete://从后往前删除字符
                 if(!input.isEmpty())
                     result_front.setText(input.substring(0, input.length() - 1));
-                    result_end.setText("");
+                result_end.setText("");
                 break;
             case R.id.equal://计算运算结果
-                Calculate cal = new Calculate();
+                BaseCalculate cal = new BaseCalculate();
                 result_end.setText(cal.evaluateExpression(result_front.getText().toString()));
                 result_front.setText(input + "=");
                 break;
@@ -165,12 +210,11 @@ public class MainActivity extends Activity implements OnClickListener,OnMenuItem
                 break;
             case R.id.btn_convert_choose:
                 //跳转到换算器页面
-                Intent intent=new Intent(MainActivity.this,ConvertLengthActivity.class);
+                Intent intent=new Intent(BaseCalActivity.this,ConvertLengthActivity.class);
                 startActivity(intent);
                 break;
         }
     }
-
     //弹出式菜单的单击事件处理
     @Override
     public boolean onMenuItemClick(MenuItem item) {
@@ -185,23 +229,23 @@ public class MainActivity extends Activity implements OnClickListener,OnMenuItem
                 Toast.makeText(this, "账号", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.base_cal:
-               Intent base_intent = new Intent(MainActivity.this,BaseCalActivity.class);
-               startActivity(base_intent);
+                Intent base_intent = new Intent(BaseCalActivity.this,BaseCalActivity.class);
+                startActivity(base_intent);
                 break;
             case R.id.sci_cal:
-                Intent intent=new Intent(MainActivity.this,SciCalActivity.class);
+                Intent intent=new Intent(BaseCalActivity.this,SciCalActivity.class);
                 startActivity(intent);
                 break;
             case R.id.loan_cal:
                 Toast.makeText(this, "贷款计算器", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.basic_cal:
-                Toast.makeText(this, "计算器", Toast.LENGTH_SHORT).show();
+                Intent intent_two=new Intent(BaseCalActivity.this,MainActivity.class);
+                startActivity(intent_two);
                 break;
-                default:
-                    break;
+            default:
+                break;
         }
         return false;
     }
-
 }

@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".Main.ConvertLengthActivity" />
         <activity android:name=".Main.SciCalActivity" />
+        <activity android:name=".Main.BaseCalActivity" />
     </application>
 
 </manifest>

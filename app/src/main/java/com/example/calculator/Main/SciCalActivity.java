@@ -242,7 +242,8 @@ public class SciCalActivity extends Activity implements OnClickListener,OnMenuIt
                 Toast.makeText(this, "账号", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.base_cal:
-                Toast.makeText(this, "进制计算器", Toast.LENGTH_SHORT).show();
+                Intent base_intent = new Intent(SciCalActivity.this,BaseCalActivity.class);
+                startActivity(base_intent);
                 break;
             case R.id.sci_cal:
                 Intent intent=new Intent(SciCalActivity.this,SciCalActivity.class);

@@ -2,5 +2,334 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <Button
+            android:id="@+id/btn_main_choose"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:drawableEnd="@drawable/ic_down_small_primary"
+            android:text="@string/base_cal_name"
+            android:textColor="@color/tab_text_color_selected"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_convert_choose"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/convert_name"
+            android:textColor="@color/tab_text"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <Button
+            android:id="@+id/btn_settings"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="140dp"
+            android:drawableTintMode="src_in"
+            android:foreground="@drawable/ic_settings" />
+    </GridLayout>
+    <TextView
+        android:id="@+id/result_front"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="right|bottom"
+        android:textSize="35sp"/>
+    <TextView
+        android:id="@+id/result_end"
+        android:layout_width="match_parent"
+        android:gravity="right|bottom"
+        android:layout_height="120dp"
+        android:textSize="55sp"/>
+
+
+    <GridLayout
+        android:columnCount="5"
+        android:rowCount="6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_and"
+            android:layout_width="70dp"
+            android:text="@string/btn_and"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:background="@drawable/button_selector"
+            android:textColor="@color/grid_item_bg_drag_from"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn_or"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/btn_or"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:textColor="@color/grid_item_bg_drag_from"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn_xor"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/btn_xor"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:textColor="@color/grid_item_bg_drag_from"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn_left_move"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/btn_left_move"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:textColor="@color/grid_item_bg_drag_from"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn_right_move"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/btn_right_move"
+            android:textAllCaps = "false"
+            android:layout_margin="5dp"
+            android:textColor="@color/grid_item_bg_drag_from"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn_A"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/btn_A"
+            android:textAllCaps = "false"
+            android:layout_margin="5dp"
+            android:textColor="@color/repayment_behind"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn_left"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/btn_left"
+            android:textAllCaps = "false"
+            android:layout_margin="5dp"
+            android:textColor="@color/grid_item_bg_drag_from"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn_right"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/btn_right"
+            android:textAllCaps = "false"
+            android:layout_margin="5dp"
+            android:textColor="@color/grid_item_bg_drag_from"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="70dp"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:background="@drawable/button_selector"
+            android:text="@string/delete"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/multi"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/multi"
+            android:textAllCaps = "false"
+            android:layout_margin="5dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn_B"
+            android:layout_width="70dp"
+            android:textAllCaps = "false"
+            android:background="@drawable/button_selector"
+            android:text="@string/btn_B"
+            android:layout_margin="5dp"
+            android:textColor="@color/repayment_behind"
+            android:textSize="28sp"/>
+
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/number_1"
+            android:textAllCaps = "false"
+            android:layout_margin="5dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/number_2"
+            android:textAllCaps = "false"
+            android:layout_margin="5dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/number_3"
+            android:textAllCaps = "false"
+            android:layout_margin="5dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/divide"
+            android:layout_margin="5dp"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/divide"
+            android:textAllCaps = "false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn_C"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/btn_C"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:textColor="@color/repayment_behind"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/number_4"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn5"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/number_5"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn6"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/number_6"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/sub"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/sub"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn_D"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/btn_D"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:textColor="@color/repayment_behind"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn7"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/number_7"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn8"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/number_8"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn9"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/number_9"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/plus"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/plus"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/all_clean"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/all_clean"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn_E"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/btn_E"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:textColor="@color/repayment_behind"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn_F"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/btn_F"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:textColor="@color/repayment_behind"
+            android:textSize="28sp"/>
+        <Button
+            android:id="@+id/btn0"
+            android:layout_width="70dp"
+            android:background="@drawable/button_selector"
+            android:text="@string/number_0"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"/>
+
+
+        <Button
+            android:id="@+id/equal"
+            android:layout_width="70dp"
+            android:layout_margin="5dp"
+            android:textAllCaps = "false"
+            android:background="@drawable/button_selector"
+            android:text="@string/equal"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28sp"/>
+    </GridLayout>
 </LinearLayout>

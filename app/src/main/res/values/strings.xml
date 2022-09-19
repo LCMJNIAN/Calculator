@@ -2,6 +2,8 @@
     <string name="app_name">Calculator</string>
     <string name="convert_name">换算器</string>
     <string name="cal_name">计算器</string>
+    <string name="sci_cal_name">科学计算器</string>
+    <string name="base_cal_name">进制计算器</string>
     <string name="number_1">1</string>
     <string name="number_2">2</string>
     <string name="number_3">3</string>
@@ -47,4 +49,16 @@
     <string name="cal_complex">计算复数</string>
     <string name="not_cal_complex">计算实数</string>
 
+    <string name="btn_and">AND</string>
+    <string name="btn_or">OR</string>
+    <string name="btn_xor">XOR</string>
+    <string name="btn_right_move"> <u>&#62;&gt;</u> </string>
+    <string name="btn_left_move"> <u>&#60;&lt;</u> </string>
+    <string name="all_clean">AC</string>
+    <string name="btn_A">A</string>
+    <string name="btn_B">B</string>
+    <string name="btn_C">C</string>
+    <string name="btn_D">D</string>
+    <string name="btn_E">E</string>
+    <string name="btn_F">F</string>
 </resources>

@@ -61,4 +61,26 @@
     <string name="btn_D">D</string>
     <string name="btn_E">E</string>
     <string name="btn_F">F</string>
+
+    <string name="convert_length">长度换算</string>
+    <string name="convert_base">进制换算</string>
+    <string name="convert_exchange_rate">汇率换算</string>
+    <string name="convert_area">面积换算</string>
+    <string name="convert_speed">速度换算</string>
+    <string name="convert_weight">重量换算</string>
+    <string name="convert_temperature">温度换算</string>
+    <string name="convert_power">功率换算</string>
+    <string name="convert_pressure">压强换算</string>
+    <string name="convert_volume">体积换算</string>
+
+
+    <string name="pm">皮米</string>
+    <string name="nm">纳米</string>
+    <string name="um">微米</string>
+    <string name="mm">毫米</string>
+    <string name="dm">分米</string>
+    <string name="cm">厘米</string>
+    <string name="m">米</string>
+    <string name="km">千米</string>
+    <string name="mi">英里</string>
 </resources>

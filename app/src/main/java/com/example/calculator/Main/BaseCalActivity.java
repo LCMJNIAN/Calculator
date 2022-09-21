@@ -220,7 +220,7 @@ public class BaseCalActivity extends Activity implements OnClickListener,OnMenuI
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.exit:
-                Toast.makeText(this, "退出", Toast.LENGTH_SHORT).show();
+                this.finish();
                 break;
             case R.id.set:
                 Toast.makeText(this, "设置", Toast.LENGTH_SHORT).show();

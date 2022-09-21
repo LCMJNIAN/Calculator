@@ -2,6 +2,8 @@ package com.example.calculator.Main;
 import android.content.Intent;
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.KeyEvent;
 import android.widget.Button;
 import android.view.View;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import android.view.View.OnClickListener;
 
 public class MainActivity extends Activity implements OnClickListener,OnMenuItemClickListener {
+    private boolean isExit;
     //结果
     private TextView result_front;
     private TextView result_end;
@@ -176,7 +179,7 @@ public class MainActivity extends Activity implements OnClickListener,OnMenuItem
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.exit:
-                Toast.makeText(this, "退出", Toast.LENGTH_SHORT).show();
+                this.finish();
                 break;
             case R.id.set:
                 Toast.makeText(this, "设置", Toast.LENGTH_SHORT).show();
@@ -202,6 +205,25 @@ public class MainActivity extends Activity implements OnClickListener,OnMenuItem
                     break;
         }
         return false;
+    }
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (isExit) {
+                this.finish();
+            } else {
+                Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
+                isExit = true;
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        isExit= false;
+                    }
+                }, 2000);
+            }
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 
 }

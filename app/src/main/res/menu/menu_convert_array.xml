@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/convert_length"
+        android:title="@string/convert_length"/>
+    <item
+        android:id="@+id/convert_base"
+        android:title="@string/convert_base"/>
+    <item
+        android:id="@+id/convert_exchange_rate"
+        android:title="@string/convert_exchange_rate"/>
+    <item
+        android:id="@+id/convert_area"
+        android:title="@string/convert_area"/>
+    <item
+        android:id="@+id/convert_speed"
+        android:title="@string/convert_speed"/>
+    <item
+        android:id="@+id/convert_weight"
+        android:title="@string/convert_weight"/>
+    <item
+        android:id="@+id/convert_temperature"
+        android:title="@string/convert_temperature"/>
+    <item
+        android:id="@+id/convert_power"
+        android:title="@string/convert_power"/>
+    <item
+        android:id="@+id/convert_pressure"
+        android:title="@string/convert_pressure"/>
+    <item
+        android:id="@+id/convert_volume"
+        android:title="@string/convert_volume"/>
+</menu>

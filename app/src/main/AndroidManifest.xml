@@ -20,6 +20,15 @@
         <activity android:name=".Main.ConvertLengthActivity" />
         <activity android:name=".Main.SciCalActivity" />
         <activity android:name=".Main.BaseCalActivity" />
+        <activity android:name=".Main.ConvertWeightActivity" />
+        <activity android:name=".Main.ConvertVolumeActivity" />
+        <activity android:name=".Main.ConvertTemperatureActivity" />
+        <activity android:name=".Main.ConvertSpeedActivity" />
+        <activity android:name=".Main.ConvertPressureActivity" />
+        <activity android:name=".Main.ConvertPowerActivity" />
+        <activity android:name=".Main.ConvertExchangeRateActivity" />
+        <activity android:name=".Main.ConvertBaseActivity" />
+        <activity android:name=".Main.ConvertAreaActivity" />
     </application>
 
 </manifest>

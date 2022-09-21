@@ -259,34 +259,43 @@ public class ConvertLengthActivity extends Activity implements OnClickListener,O
                 Toast.makeText(this, "账号", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.convert_exchange_rate:
-                convert_choose.setText("汇率换算");
+                Intent intent_ex_ra = new Intent(ConvertLengthActivity.this, ConvertExchangeRateActivity.class);
+                startActivity(intent_ex_ra);
                 break;
             case R.id.convert_base:
-                convert_choose.setText("进制换算");
+                Intent intent_base = new Intent(ConvertLengthActivity.this, ConvertBaseActivity.class);
+                startActivity(intent_base);
                 break;
             case R.id.convert_length:
                 convert_choose.setText("长度换算");
                 break;
             case R.id.convert_area:
-                convert_choose.setText("面积换算");
+                Intent intent_area = new Intent(ConvertLengthActivity.this, ConvertAreaActivity.class);
+                startActivity(intent_area);
                 break;
             case R.id.convert_speed:
-                convert_choose.setText("速度换算");
+                Intent intent_speed = new Intent(ConvertLengthActivity.this, ConvertSpeedActivity.class);
+                startActivity(intent_speed);
                 break;
             case R.id.convert_temperature:
-                convert_choose.setText("温度换算");
+                Intent intent_tem = new Intent(ConvertLengthActivity.this, ConvertTemperatureActivity.class);
+                startActivity(intent_tem);
                 break;
             case R.id.convert_weight:
-                convert_choose.setText("重量换算");
+                Intent intent_wei = new Intent(ConvertLengthActivity.this, ConvertWeightActivity.class);
+                startActivity(intent_wei);
                 break;
             case R.id.convert_power:
-                convert_choose.setText("功率换算");
+                Intent intent_power= new Intent(ConvertLengthActivity.this, ConvertPowerActivity.class);
+                startActivity(intent_power);
                 break;
             case R.id.convert_pressure:
-                convert_choose.setText("压强换算");
+                Intent intent_pressure = new Intent(ConvertLengthActivity.this, ConvertPressureActivity.class);
+                startActivity(intent_pressure);
                 break;
             case R.id.convert_volume:
-                convert_choose.setText("体积换算");
+                Intent intent_volume = new Intent(ConvertLengthActivity.this, ConvertVolumeActivity.class);
+                startActivity(intent_volume);
                 break;
         }
         return false;

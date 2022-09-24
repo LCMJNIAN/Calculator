@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:paddingBottom="20dp"
+    android:paddingLeft="22.5dp"
+    android:paddingRight="22.5dp"
+    android:paddingTop="20dp">
 
+    <Button
+        android:id="@+id/btn_bin"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:text="@string/binary"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn_oct"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/octal"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn_dec"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/decimal"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+    <Button
+        android:id="@+id/btn_hex"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/hexadecimal"
+        android:textColor="#000000"
+        android:textSize="18sp" />
 </LinearLayout>

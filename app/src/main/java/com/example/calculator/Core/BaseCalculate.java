@@ -159,7 +159,7 @@ public class BaseCalculate {
         }
 
     }
-
+    //十进制转十六进制
     public String hexadecimal(String s) {
         int i = 0;
         for(i=0;i<s.length();i++)
@@ -172,6 +172,7 @@ public class BaseCalculate {
 
 
     }
+    //十六进制转十进制
     public String decimal(String a)
     {
         long outcome = 0;
@@ -188,6 +189,8 @@ public class BaseCalculate {
         else
             return c - '0';
     }
+
+    //二进制转十进制
     public String bin_to_dec(String s)
     {
         int outcome = 0;
@@ -200,6 +203,36 @@ public class BaseCalculate {
         }
         return String.valueOf(outcome);
     }
+
+    //八进制转十进制
+    public String O_to_dec(String s)
+    {
+        int outcome = 0;
+        int dec = Integer.parseInt(s);
+        while(dec != 0){
+            int n = dec % 10;
+            outcome = outcome*8 + n;
+            dec = dec/10;
+        }
+        return String.valueOf(outcome);
+
+    }
+
+    //十进制转八进制
+    public String dec_to_O(String s)
+    {
+        String oct = Long.toOctalString(Long.parseLong(s));
+        return oct
+    }
+
+    //十进制转二进制
+    public String dec_bin(String s)
+    {
+        return Long.toBinaryString(Long.parseLong(s));
+    }
+
+
+
     //求原码
     public String true_form(String s)
     {

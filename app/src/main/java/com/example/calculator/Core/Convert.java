@@ -46,4 +46,8 @@ public class Convert {
 
         return String.valueOf(temp_ans);
     }
+    public String CalBase(String sour_name, String value,String tar_name){
+        BaseCalculate BC = new BaseCalculate();
+
+    }
 }

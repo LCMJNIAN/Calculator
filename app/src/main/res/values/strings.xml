@@ -83,4 +83,9 @@
     <string name="m">米</string>
     <string name="km">千米</string>
     <string name="mi">英里</string>
+    
+    <string name="decimal">十进制</string>
+    <string name="hexadecimal">十六进制</string>
+    <string name="binary">二进制</string>
+    <string name="octal">八进制</string>
 </resources>

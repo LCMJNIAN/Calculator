@@ -208,11 +208,8 @@ public class BaseCalculate {
     public String O_to_dec(String s)
     {
         int outcome = 0;
-        int dec = Integer.parseInt(s);
-        while(dec != 0){
-            int n = dec % 10;
-            outcome = outcome*8 + n;
-            dec = dec/10;
+        for(int i=0;i<s.length();i++){
+            outcome = outcome*8 + Integer.parseInt(String.valueOf(s.charAt(i)));
         }
         return String.valueOf(outcome);
 
@@ -222,7 +219,7 @@ public class BaseCalculate {
     public String dec_to_O(String s)
     {
         String oct = Long.toOctalString(Long.parseLong(s));
-        return oct
+        return oct;
     }
 
     //十进制转二进制

@@ -4,25 +4,6 @@ import java.util.*;
 public class Calculate {
     private final double PI = 3.1415926535;
     private final double E = 2.81828;
-    public String insetBlanks(String s) {
-        String result = "";
-        char temp='s';
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == '(' || s.charAt(i) == ')' || s.charAt(i) == '+' || s.charAt(i) == '-'
-                    || s.charAt(i) == '×' || s.charAt(i) == '÷' || s.charAt(i) == '&' || s.charAt(i) == '^' || s.charAt(i) == '√')
-            {
-                if(s.charAt(i)=='-'&& (temp=='s'||temp=='(')) {
-                    result += s.charAt(i);
-                    continue;
-                }
-                result += " " + s.charAt(i) + " ";
-            } else {
-                result += s.charAt(i);
-            }
-            temp = s.charAt(i);
-        }
-        return result;
-    }
 
     public String evaluateExpression(String expression) {
         Stack<Double> operandStack = new Stack<>();

@@ -167,8 +167,20 @@ public class SciCalActivity extends Activity implements OnClickListener,OnMenuIt
                     result_front.setText(input + '.');
                 break;
             //加减乘除，运算符前后都是空格
-            case R.id.plus:
+
             case R.id.sub:
+                if(input.isEmpty())
+                    result_front.setText("-");
+                else{
+                    int last_index = input.length()-1;
+                    if (Character.isDigit(input.charAt(last_index)))
+                        result_front.setText(input + " " +((Button)view).getText() + " " );
+                    else
+                        result_front.setText(input + "-");
+                }
+                System.out.println(result_front.getText().toString());
+                break;
+            case R.id.plus:
             case R.id.multi:
             case R.id.divide:
             case R.id.btn_sqrt:

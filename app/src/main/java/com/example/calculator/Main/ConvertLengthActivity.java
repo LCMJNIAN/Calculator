@@ -187,7 +187,7 @@ public class ConvertLengthActivity extends Activity implements OnClickListener,O
                 setDialog();
                 break;
 
-            case R.id.delete://从后往前删除字符(未完善)
+            case R.id.delete://从后往前删除字符
                 if (!input.isEmpty()) {
                     if (input.substring(0, input.length() - 1).isEmpty()) {
                             result_first.setText("0");

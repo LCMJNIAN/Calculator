@@ -9,8 +9,15 @@ public class BaseCalculate {
         String[] tokens = expression.split(" ");
         String temp = " ";
         for(String item: tokens){
-            if(item.length() <= 1)
-                temp += " " + item + " ";
+            if(item.isEmpty())
+                continue;
+            if(item.length() <= 1) {
+                if(item.charAt(0) >= 'A' && item.charAt(0) <= 'F') {
+                    temp += " " + decimal(item) + " ";
+                }
+                else
+                    temp += " " + item + " ";
+            }
             else{
                 if("<<".equals(item) || ">>".equals(item))
                     temp += " " + item + " ";
@@ -19,6 +26,7 @@ public class BaseCalculate {
                     temp += " " + item + " ";
                 }
             }
+            System.out.println(temp);
         }
         String[] ans = temp.split(" ");
         for (String token : ans) {
@@ -103,9 +111,9 @@ public class BaseCalculate {
         int index = answer.indexOf('.');
         for(int i=index+1;i<answer.length();i++){
             if(answer.charAt(i) != '0')
-                return answer;
+                return hexadecimal(answer);
         }
-        return answer.substring(0,index);
+        return hexadecimal(answer.substring(0,index));
 
     }
 
@@ -160,7 +168,7 @@ public class BaseCalculate {
             }
         String target_string = s.substring(0,i);
         String hex = Long.toHexString(Long.parseLong(target_string));
-        return "OX" + hex.toUpperCase();
+        return hex.toUpperCase();
 
 
     }

@@ -10,6 +10,9 @@
         android:id="@+id/base_cal"
         android:title="@string/base_cal"/>
     <item
-        android:id="@+id/loan_cal"
-        android:title="@string/loan_cal"/>
+        android:id="@+id/house_loan_cal"
+        android:title="@string/house_loan_cal"/>
+    <item
+        android:id="@+id/car_loan_cal"
+        android:title="@string/car_loan_cal"/>
 </menu>

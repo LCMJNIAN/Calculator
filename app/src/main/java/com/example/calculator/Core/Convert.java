@@ -47,7 +47,26 @@ public class Convert {
         return String.valueOf(temp_ans);
     }
     public String CalBase(String sour_name, String value,String tar_name){
+        if(sour_name.equals(tar_name))
+            return value;
         BaseCalculate BC = new BaseCalculate();
-        
+        String temp_ans = value;
+        if(sour_name == "十进制")
+            temp_ans = temp_ans;
+        else if(sour_name.equals("八进制"))
+            temp_ans = BC.O_to_dec(value);
+        else if(sour_name.equals("二进制"))
+            temp_ans = BC.bin_to_dec(value);
+        else
+            temp_ans = BC.decimal(value);
+
+        if(tar_name.equals("十进制"))
+            return temp_ans;
+        else if(tar_name.equals("八进制"))
+            return BC.dec_to_O(temp_ans);
+        else if(tar_name.equals("二进制"))
+            return BC.dec_bin(temp_ans);
+        else
+            return BC.hexadecimal(value);
     }
 }

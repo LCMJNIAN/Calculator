@@ -209,8 +209,13 @@ public class MainActivity extends Activity implements OnClickListener,OnMenuItem
                 Intent intent=new Intent(MainActivity.this,SciCalActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.loan_cal:
-                Toast.makeText(this, "贷款计算器", Toast.LENGTH_SHORT).show();
+            case R.id.house_loan_cal:
+                Intent house_loan_intent = new Intent(MainActivity.this,HouseLoanCalActivity.class);
+                startActivity(house_loan_intent);
+                break;
+            case R.id.car_loan_cal:
+                Intent car_loan_intent = new Intent(MainActivity.this, CarLoanCalActivity.class);
+                startActivity(car_loan_intent);
                 break;
             case R.id.basic_cal:
                 Toast.makeText(this, "计算器", Toast.LENGTH_SHORT).show();

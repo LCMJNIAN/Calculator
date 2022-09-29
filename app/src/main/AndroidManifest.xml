@@ -29,6 +29,8 @@
         <activity android:name=".Main.ConvertExchangeRateActivity" />
         <activity android:name=".Main.ConvertBaseActivity" />
         <activity android:name=".Main.ConvertAreaActivity" />
+        <activity android:name=".Main.HouseLoanCalActivity" />
+        <activity android:name=".Main.CarLoanCalActivity" />
     </application>
 
 </manifest>

@@ -27,7 +27,8 @@
     <string name="basic_cal">计算器</string>
     <string name="sic_cal">科学计算器</string>
     <string name="base_cal">进制计算器</string>
-    <string name="loan_cal">贷款计算器</string>
+    <string name="house_loan_cal">房贷计算器</string>
+    <string name="car_loan_cal">车贷计算器</string>
 
     <string name="length_conversion">长度换算</string>
     <string name="length_meter">米</string>

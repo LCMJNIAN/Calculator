@@ -158,14 +158,14 @@ public class ConvertBaseActivity extends Activity implements OnClickListener,OnM
                     String tar_name = choose_two.getText().toString();
                     String value = result_first.getText().toString();
                     Convert con = new Convert();
-                    result_second.setText(con.CalLength(sour_name,value,tar_name));
+                    result_second.setText(con.CalBase(sour_name,value,tar_name));
                 } else {
                     result_second.setText(content);
                     String sour_name = choose_two.getText().toString();
                     String tar_name = choose_one.getText().toString();
                     String value = result_second.getText().toString();
                     Convert con = new Convert();
-                    result_first.setText(con.CalLength(sour_name,value,tar_name));
+                    result_first.setText(con.CalBase(sour_name,value,tar_name));
                 }
                 break;
             case R.id.clean://清除输入框
@@ -182,14 +182,14 @@ public class ConvertBaseActivity extends Activity implements OnClickListener,OnM
                         String tar_name = choose_two.getText().toString();
                         String value = result_first.getText().toString();
                         Convert con = new Convert();
-                        result_second.setText(con.CalLength(sour_name,value,tar_name));
+                        result_second.setText(con.CalBase(sour_name,value,tar_name));
                     }else{
                         result_second.setText(input + '.');
                         String sour_name = choose_two.getText().toString();
                         String tar_name = choose_one.getText().toString();
                         String value = result_second.getText().toString();
                         Convert con = new Convert();
-                        result_first.setText(con.CalLength(sour_name,value,tar_name));
+                        result_first.setText(con.CalBase(sour_name,value,tar_name));
                     }
                 }
                 break;
@@ -215,7 +215,7 @@ public class ConvertBaseActivity extends Activity implements OnClickListener,OnM
                             String tar_name = choose_two.getText().toString();
                             String value = result_first.getText().toString();
                             Convert con = new Convert();
-                            result_second.setText(con.CalLength(sour_name,value,tar_name));
+                            result_second.setText(con.CalBase(sour_name,value,tar_name));
                         }
                         else {
                             result_second.setText(input.substring(0, input.length() - 1));
@@ -223,7 +223,7 @@ public class ConvertBaseActivity extends Activity implements OnClickListener,OnM
                             String tar_name = choose_one.getText().toString();
                             String value = result_second.getText().toString();
                             Convert con = new Convert();
-                            result_first.setText(con.CalLength(sour_name,value,tar_name));
+                            result_first.setText(con.CalBase(sour_name,value,tar_name));
                         }
                     }
                 }

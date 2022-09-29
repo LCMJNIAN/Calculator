@@ -1,58 +1,58 @@
-package com.example.calculator.Main;
+package com.example.calculator.Main.Cal;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.widget.Button;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import com.example.calculator.Core.Calculate;
+import com.example.calculator.Core.BaseCalculate;
+import com.example.calculator.Main.Convert.ConvertLengthActivity;
+import com.example.calculator.Main.MainActivity;
 import com.example.calculator.R;
 import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.Toast;
 import android.view.View.OnClickListener;
-
-public class SciCalActivity extends Activity implements OnClickListener,OnMenuItemClickListener{
+public class BaseCalActivity extends Activity implements OnClickListener,OnMenuItemClickListener {
+    //进制选择标志符
+    private int flag = 16;
     //结果
     private TextView result_front;
     private TextView result_end;
     //按钮0-9
     private Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9;
+    //按钮A-F
+    private Button btn_A,btn_B,btn_C,btn_D,btn_E,btn_F;
     //运算符
     private  Button plus;   // 加号+
     private  Button sub;    // 减号-
     private  Button multi;  // 乘号×
     private  Button divide; // 除号÷
-    private  Button point;  // 小数点.
     private  Button equal;  // 等于=
     private  Button clean;  // 清空
     private  Button delete; // 删除
     private  Button settings; //设置
     private  Button cal_choose; //计算器选择
     private  Button convert;  //换算器
-    private  Button log;    //log
-    private  Button ln;     //ln
-    private  Button sin;    //sin
-    private  Button cos;    //cos
-    private  Button tan;    //tan
-    private  Button pi;     //pi常数
-    private  Button e;      //e常数
-    private  Button factorial;//阶乘
-    private  Button i;      //复数i
+    private  Button and;    //与
+    private  Button or;     //或
+    private  Button xor;    //异或
+    private  Button left_move;    //左移
+    private  Button right_move;    //右移
     private  Button left;   //左括号
     private  Button right;  //右括号
-    private  Button sqrt;   //乘方
-    private  Button double_zero;//00
-    private  Button evo;    //开方
+    private RadioGroup rg;  //单选按钮组
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sci_cal);
+        setContentView(R.layout.activity_base_cal);
         initView();
     }
-
     private void initView() {
         btn0 = findViewById(R.id.btn0);
         btn1 = findViewById(R.id.btn1);
@@ -64,29 +64,27 @@ public class SciCalActivity extends Activity implements OnClickListener,OnMenuIt
         btn7 = findViewById(R.id.btn7);
         btn8 = findViewById(R.id.btn8);
         btn9 = findViewById(R.id.btn9);
+        btn_A = findViewById(R.id.btn_A);
+        btn_B = findViewById(R.id.btn_B);
+        btn_C = findViewById(R.id.btn_C);
+        btn_D = findViewById(R.id.btn_D);
+        btn_E = findViewById(R.id.btn_E);
+        btn_F = findViewById(R.id.btn_F);
 
         plus = findViewById(R.id.plus);
         sub = findViewById(R.id.sub);
         multi = findViewById(R.id.multi);
         divide = findViewById(R.id.divide);
-        point = findViewById(R.id.point);
         equal = findViewById(R.id.equal);
-        clean = findViewById(R.id.clean);
+        clean = findViewById(R.id.all_clean);
         delete = findViewById(R.id.delete);
-        log = findViewById(R.id.btn_log);
-        ln  = findViewById(R.id.btn_ln);
-        sin = findViewById(R.id.btn_sin);
-        cos = findViewById(R.id.btn_cos);
-        tan = findViewById(R.id.btn_tan);
-        pi = findViewById(R.id.btn_pi);
-        e = findViewById(R.id.btn_e);
-        factorial = findViewById(R.id.btn_factorial);
-        i = findViewById(R.id.btn_i);
         left = findViewById(R.id.btn_left);
         right = findViewById(R.id.btn_right);
-        sqrt = findViewById(R.id.btn_sqrt);
-        evo = findViewById(R.id.btn_evo);
-        double_zero = findViewById(R.id.double_zero);
+        and = findViewById(R.id.btn_and);
+        or = findViewById(R.id.btn_or);
+        xor = findViewById(R.id.btn_xor);
+        left_move = findViewById(R.id.btn_left_move);
+        right_move = findViewById(R.id.btn_right_move);
 
         result_front = findViewById(R.id.result_front);
         result_end = findViewById(R.id.result_end);
@@ -94,6 +92,30 @@ public class SciCalActivity extends Activity implements OnClickListener,OnMenuIt
         settings = (Button)findViewById(R.id.btn_settings);
         cal_choose = findViewById(R.id.btn_main_choose);
         convert = findViewById(R.id.btn_convert_choose);
+
+        rg = (RadioGroup) findViewById(R.id.RadioGroup1);
+        // 为按钮组绑定事件
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                RadioButton r = (RadioButton) findViewById(checkedId);
+                String base_text = r.getText().toString();
+                if("十六进制".equals(base_text)){
+                    flag = 16;
+                    enabledButton(flag);
+                }
+                else if("八进制".equals(base_text)){
+                    flag = 8;
+                    enabledButton(8);
+                }
+                else{
+                    flag = 2;
+                    enabledButton(2);
+                }
+            }
+        });
+
 
 
         btn0.setOnClickListener(this);
@@ -106,29 +128,27 @@ public class SciCalActivity extends Activity implements OnClickListener,OnMenuIt
         btn7.setOnClickListener(this);
         btn8.setOnClickListener(this);
         btn9.setOnClickListener(this);
+        btn_A.setOnClickListener(this);
+        btn_B.setOnClickListener(this);
+        btn_C.setOnClickListener(this);
+        btn_D.setOnClickListener(this);
+        btn_E.setOnClickListener(this);
+        btn_F.setOnClickListener(this);
 
         plus.setOnClickListener(this);
         sub.setOnClickListener(this);
         multi.setOnClickListener(this);
         divide.setOnClickListener(this);
         equal.setOnClickListener(this);
-        point.setOnClickListener(this);
         clean.setOnClickListener(this);
         delete.setOnClickListener(this);
-        log.setOnClickListener(this);
-        ln.setOnClickListener(this);
-        sin.setOnClickListener(this);
-        cos.setOnClickListener(this);
-        tan.setOnClickListener(this);
         left.setOnClickListener(this);
         right.setOnClickListener(this);
-        e.setOnClickListener(this);
-        i.setOnClickListener(this);
-        pi.setOnClickListener(this);
-        factorial.setOnClickListener(this);
-        evo.setOnClickListener(this);
-        sqrt.setOnClickListener(this);
-        double_zero.setOnClickListener(this);
+        and.setOnClickListener(this);
+        or.setOnClickListener(this);
+        xor.setOnClickListener(this);
+        left_move.setOnClickListener(this);
+        right_move.setOnClickListener(this);
 
         settings.setOnClickListener(this);
         cal_choose.setOnClickListener(this);
@@ -149,22 +169,19 @@ public class SciCalActivity extends Activity implements OnClickListener,OnMenuIt
             case R.id.btn7:
             case R.id.btn8:
             case R.id.btn9:
-            case R.id.double_zero:
-            case R.id.btn_i:
-            case R.id.btn_e:
-            case R.id.btn_pi:
+            case R.id.btn_A:
+            case R.id.btn_B:
+            case R.id.btn_C:
+            case R.id.btn_D:
+            case R.id.btn_E:
+            case R.id.btn_F:
                 if(input.length()>0 && input.charAt(input.length()-1) == '=') {
                     result_front.setText(((Button) view).getText());
                     result_end.setText("");
                 }
                 else
                     result_front.setText(input + ((Button)view).getText());
-                break;
-            case R.id.point:
-                if (input.isEmpty() || input.substring(input.length() - 1).equals(" "))
-                    return;//如果最后是空格，无响应
-                else
-                    result_front.setText(input + '.');
+                System.out.println(result_front.getText().toString());
                 break;
             //加减乘除，运算符前后都是空格
 
@@ -183,19 +200,23 @@ public class SciCalActivity extends Activity implements OnClickListener,OnMenuIt
             case R.id.plus:
             case R.id.multi:
             case R.id.divide:
-            case R.id.btn_sqrt:
-            case R.id.btn_evo:
-            case R.id.btn_cos:
-            case R.id.btn_sin:
-            case R.id.btn_tan:
+            case R.id.btn_left_move:
+            case R.id.btn_right_move:
             case R.id.btn_left:
             case R.id.btn_right:
-            case R.id.btn_log:
-            case R.id.btn_ln:
-            case R.id.btn_factorial:
                 result_front.setText(input + " " + ((Button)view).getText() + " ");
+                System.out.println(result_front.getText().toString());
                 break;
-            case R.id.clean://清除输入框
+            case R.id.btn_and:
+                result_front.setText(input + " " + "&" + " ");
+                break;
+            case R.id.btn_or:
+                result_front.setText(input + " " + "|" + " ");
+                break;
+            case R.id.btn_xor:
+                result_front.setText(input + " "+ "^"+" ");
+                break;
+            case R.id.all_clean://清除输入框
                 result_front.setText("");
                 result_end.setText("");
                 break;
@@ -205,8 +226,8 @@ public class SciCalActivity extends Activity implements OnClickListener,OnMenuIt
                 result_end.setText("");
                 break;
             case R.id.equal://计算运算结果
-                Calculate cal = new Calculate();
-                result_end.setText(cal.evaluateExpression(result_front.getText().toString()));
+                BaseCalculate cal = new BaseCalculate();
+                result_end.setText(cal.evaluateExpression(result_front.getText().toString(),flag));
                 result_front.setText(input + "=");
                 break;
             case R.id.btn_settings:
@@ -235,7 +256,7 @@ public class SciCalActivity extends Activity implements OnClickListener,OnMenuIt
                 break;
             case R.id.btn_convert_choose:
                 //跳转到换算器页面
-                Intent intent=new Intent(SciCalActivity.this,ConvertLengthActivity.class);
+                Intent intent=new Intent(BaseCalActivity.this, ConvertLengthActivity.class);
                 startActivity(intent);
                 break;
         }
@@ -254,23 +275,23 @@ public class SciCalActivity extends Activity implements OnClickListener,OnMenuIt
                 Toast.makeText(this, "账号", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.base_cal:
-                Intent base_intent = new Intent(SciCalActivity.this,BaseCalActivity.class);
+                Intent base_intent = new Intent(BaseCalActivity.this,BaseCalActivity.class);
                 startActivity(base_intent);
                 break;
             case R.id.sci_cal:
-                Intent intent=new Intent(SciCalActivity.this,SciCalActivity.class);
+                Intent intent=new Intent(BaseCalActivity.this,SciCalActivity.class);
                 startActivity(intent);
                 break;
             case R.id.house_loan_cal:
-                Intent house_loan_intent = new Intent(SciCalActivity.this,HouseLoanCalActivity.class);
+                Intent house_loan_intent = new Intent(BaseCalActivity.this,HouseLoanCalActivity.class);
                 startActivity(house_loan_intent);
                 break;
             case R.id.car_loan_cal:
-                Intent car_loan_intent = new Intent(SciCalActivity.this, CarLoanCalActivity.class);
+                Intent car_loan_intent = new Intent(BaseCalActivity.this, CarLoanCalActivity.class);
                 startActivity(car_loan_intent);
                 break;
             case R.id.basic_cal:
-                Intent intent_two=new Intent(SciCalActivity.this,MainActivity.class);
+                Intent intent_two=new Intent(BaseCalActivity.this, MainActivity.class);
                 startActivity(intent_two);
                 break;
             default:
@@ -278,5 +299,54 @@ public class SciCalActivity extends Activity implements OnClickListener,OnMenuIt
         }
         return false;
     }
-
+    private void enabledButton(int flag){
+        if(flag == 16){
+            btn2.setEnabled(true);
+            btn3.setEnabled(true);
+            btn4.setEnabled(true);
+            btn5.setEnabled(true);
+            btn6.setEnabled(true);
+            btn7.setEnabled(true);
+            btn8.setEnabled(true);
+            btn9.setEnabled(true);
+            btn_A.setEnabled(true);
+            btn_B.setEnabled(true);
+            btn_C.setEnabled(true);
+            btn_D.setEnabled(true);
+            btn_E.setEnabled(true);
+            btn_F.setEnabled(true);
+        }
+        else if(flag == 8){
+            btn2.setEnabled(true);
+            btn3.setEnabled(true);
+            btn4.setEnabled(true);
+            btn5.setEnabled(true);
+            btn6.setEnabled(true);
+            btn7.setEnabled(true);
+            btn8.setEnabled(false);
+            btn9.setEnabled(false);
+            btn_A.setEnabled(false);
+            btn_B.setEnabled(false);
+            btn_C.setEnabled(false);
+            btn_D.setEnabled(false);
+            btn_E.setEnabled(false);
+            btn_F.setEnabled(false);
+        }
+        else{
+            btn2.setEnabled(false);
+            btn3.setEnabled(false);
+            btn4.setEnabled(false);
+            btn5.setEnabled(false);
+            btn6.setEnabled(false);
+            btn7.setEnabled(false);
+            btn8.setEnabled(false);
+            btn9.setEnabled(false);
+            btn_A.setEnabled(false);
+            btn_B.setEnabled(false);
+            btn_C.setEnabled(false);
+            btn_D.setEnabled(false);
+            btn_E.setEnabled(false);
+            btn_F.setEnabled(false);
+        }
+    }
 }

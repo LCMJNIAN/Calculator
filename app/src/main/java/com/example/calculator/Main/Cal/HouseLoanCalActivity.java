@@ -1,4 +1,4 @@
-package com.example.calculator.Main;
+package com.example.calculator.Main.Cal;
 import android.content.Intent;
 import android.app.Activity;
 import android.os.Bundle;
@@ -19,6 +19,8 @@ import android.widget.TextView;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import com.example.calculator.Core.Calculate;
+import com.example.calculator.Main.Convert.ConvertLengthActivity;
+import com.example.calculator.Main.MainActivity;
 import com.example.calculator.R;
 import com.example.calculator.utils.TextUtil;
 
@@ -361,7 +363,7 @@ public class HouseLoanCalActivity extends Activity implements OnClickListener, O
                 break;
             case R.id.btn_convert_choose:
                 //跳转到换算器页面
-                Intent intent=new Intent(HouseLoanCalActivity.this,ConvertLengthActivity.class);
+                Intent intent=new Intent(HouseLoanCalActivity.this, ConvertLengthActivity.class);
                 startActivity(intent);
                 break;
         }
@@ -417,7 +419,8 @@ public class HouseLoanCalActivity extends Activity implements OnClickListener, O
                 startActivity(car_loan_intent);
                 break;
             case R.id.basic_cal:
-                Toast.makeText(this, "计算器", Toast.LENGTH_SHORT).show();
+                Intent intent_two=new Intent(HouseLoanCalActivity.this, MainActivity.class);
+                startActivity(intent_two);
                 break;
             default:
                 break;

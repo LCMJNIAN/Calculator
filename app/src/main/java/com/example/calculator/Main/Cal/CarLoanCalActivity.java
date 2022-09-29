@@ -1,28 +1,23 @@
-package com.example.calculator.Main;
-import android.app.Activity;
-import android.app.Dialog;
+package com.example.calculator.Main.Cal;
 import android.content.Intent;
+import android.app.Activity;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.Window;
-import android.view.WindowManager;
+import android.os.Handler;
+import android.view.KeyEvent;
 import android.widget.Button;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-
-import com.example.calculator.Core.Convert;
+import com.example.calculator.Core.Calculate;
 import com.example.calculator.R;
 import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.Toast;
 import android.view.View.OnClickListener;
-public class ConvertExchangeRateActivity extends Activity{
+public class CarLoanCalActivity extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_convert_exchange_rate);
+        setContentView(R.layout.activity_car_loan);
     }
 }

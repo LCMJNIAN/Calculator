@@ -50,7 +50,30 @@
         android:gravity="right|bottom"
         android:layout_height="120dp"
         android:textSize="55sp"/>
-
+    <RadioGroup
+        android:id="@+id/RadioGroup1"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:orientation="horizontal" >
+        <RadioButton
+            android:id="@+id/RadioButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hexadecimal"
+            android:checked="true"
+            />
+        <RadioButton
+            android:id="@+id/RadioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/octal"
+            />
+        <RadioButton
+            android:id="@+id/RadioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/binary"/>
+    </RadioGroup>
 
     <GridLayout
         android:columnCount="5"

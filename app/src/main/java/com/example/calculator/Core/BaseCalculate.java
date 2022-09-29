@@ -3,7 +3,7 @@ package com.example.calculator.Core;
 import java.util.*;
 public class BaseCalculate {
 
-    public String evaluateExpression(String expression) {
+    public String evaluateExpression(String expression, int flag) {
         Stack<Double> operandStack = new Stack<>();
         Stack<Character> operatorStack = new Stack<>();
         String[] tokens = expression.split(" ");
@@ -13,7 +13,7 @@ public class BaseCalculate {
                 continue;
             if(item.length() <= 1) {
                 if(item.charAt(0) >= 'A' && item.charAt(0) <= 'F') {
-                    temp += " " + decimal(item) + " ";
+                    temp += " " + convert_to_decimal(item,flag) + " ";
                 }
                 else
                     temp += " " + item + " ";
@@ -22,7 +22,7 @@ public class BaseCalculate {
                 if("<<".equals(item) || ">>".equals(item))
                     temp += " " + item + " ";
                 else {
-                    item = decimal(item);
+                    item = convert_to_decimal(item,flag);
                     temp += " " + item + " ";
                 }
             }
@@ -111,9 +111,9 @@ public class BaseCalculate {
         int index = answer.indexOf('.');
         for(int i=index+1;i<answer.length();i++){
             if(answer.charAt(i) != '0')
-                return hexadecimal(answer);
+                return decimal_to_others(answer,flag);
         }
-        return hexadecimal(answer.substring(0,index));
+        return decimal_to_others(answer.substring(0,index),flag);
 
     }
 
@@ -228,6 +228,26 @@ public class BaseCalculate {
         return Long.toBinaryString(Long.parseLong(s));
     }
 
+    //其他进制转成十进制
+    private String convert_to_decimal(String s, int flag)
+    {
+        if(flag == 16)
+            return decimal(s);
+        else if(flag == 8)
+            return O_to_dec(s);
+        else
+            return bin_to_dec(s);
+    }
+    //十进制转其他进制
+    private String decimal_to_others(String s, int flag)
+    {
+        if(flag == 16)
+            return hexadecimal(s);
+        else if(flag == 8)
+            return dec_to_O(s);
+        else
+            return dec_bin(s);
+    }
 
 
     //求原码

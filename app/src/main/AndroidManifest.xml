@@ -17,20 +17,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main.ConvertLengthActivity" />
-        <activity android:name=".Main.SciCalActivity" />
-        <activity android:name=".Main.BaseCalActivity" />
-        <activity android:name=".Main.ConvertWeightActivity" />
-        <activity android:name=".Main.ConvertVolumeActivity" />
-        <activity android:name=".Main.ConvertTemperatureActivity" />
-        <activity android:name=".Main.ConvertSpeedActivity" />
-        <activity android:name=".Main.ConvertPressureActivity" />
-        <activity android:name=".Main.ConvertPowerActivity" />
-        <activity android:name=".Main.ConvertExchangeRateActivity" />
-        <activity android:name=".Main.ConvertBaseActivity" />
-        <activity android:name=".Main.ConvertAreaActivity" />
-        <activity android:name=".Main.HouseLoanCalActivity" />
-        <activity android:name=".Main.CarLoanCalActivity" />
+        <activity android:name=".Main.Convert.ConvertLengthActivity" />
+        <activity android:name=".Main.Convert.ConvertWeightActivity" />
+        <activity android:name=".Main.Convert.ConvertVolumeActivity" />
+        <activity android:name=".Main.Convert.ConvertTemperatureActivity" />
+        <activity android:name=".Main.Convert.ConvertSpeedActivity" />
+        <activity android:name=".Main.Convert.ConvertPressureActivity" />
+        <activity android:name=".Main.Convert.ConvertPowerActivity" />
+        <activity android:name=".Main.Convert.ConvertExchangeRateActivity" />
+        <activity android:name=".Main.Convert.ConvertBaseActivity" />
+        <activity android:name=".Main.Convert.ConvertAreaActivity" />
+        <activity android:name=".Main.Cal.SciCalActivity" />
+        <activity android:name=".Main.Cal.HouseLoanCalActivity" />
+        <activity android:name=".Main.Cal.CarLoanCalActivity" />
+        <activity android:name=".Main.Cal.BaseCalActivity" />
     </application>
 
 </manifest>

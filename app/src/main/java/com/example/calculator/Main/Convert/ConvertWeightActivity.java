@@ -1,4 +1,4 @@
-package com.example.calculator.Main;
+package com.example.calculator.Main.Convert;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
@@ -20,10 +20,9 @@ import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.Toast;
 import android.view.View.OnClickListener;
-public class ConvertPressureActivity extends Activity{
+public class ConvertWeightActivity extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_convert_pressure);
+        setContentView(R.layout.activity_convert_weight);
     }
 }
-

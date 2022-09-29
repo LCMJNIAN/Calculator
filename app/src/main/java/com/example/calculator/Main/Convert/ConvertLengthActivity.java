@@ -1,4 +1,4 @@
-package com.example.calculator.Main;
+package com.example.calculator.Main.Convert;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -16,6 +16,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.example.calculator.Core.Convert;
+import com.example.calculator.Main.MainActivity;
 import com.example.calculator.R;
 import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
